@@ -7,14 +7,20 @@ function maxOfTwoNumbers(number1, number2) {
   }
 }
 
-
-
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const words = [
+  "mystery",
+  "brother",
+  "aviator",
+  "crocodile",
+  "pearl",
+  "orchard",
+  "crackpot",
+];
 
 function findLongestWord(wordsArray) {
-  let longestWord = '';
-  if (wordsArray.length ===0) {
+  let longestWord = "";
+  if (wordsArray.length === 0) {
     return null;
   }
   wordsArray.forEach((word) => {
@@ -25,44 +31,39 @@ function findLongestWord(wordsArray) {
   return longestWord;
 }
 
-
-
 // Iteration #3.1: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbersArray) {
   let sum = 0;
-  numbersArray.forEach(number => sum += number);
+  numbersArray.forEach((number) => (sum += number));
   return sum;
 }
 
-
-
 // Iteration #3.2 Bonus:
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 
 function sum(diffElementsArray) {
   let sum = 0;
   diffElementsArray.forEach((element) => {
     switch (typeof element) {
-      case 'number':
+      case "number":
         sum += element;
         break;
-      case 'string':
+      case "string":
         sum += element.length;
         break;
-      case 'boolean':
+      case "boolean":
         if (element === true) {
           sum++;
         }
         break;
-    default: throw new Error("There is an unprocessed data type");
+      default:
+        throw new Error("There is an unprocessed data type");
     }
   });
-  return sum; 
+  return sum;
 }
-
-
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -75,9 +76,19 @@ function averageNumbers(numbersArray) {
   return sumNumbers(numbersArray) / numbersArray.length;
 }
 
-
 // Level 2: Array of strings
-const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+const wordsArr = [
+  "seat",
+  "correspond",
+  "linen",
+  "motif",
+  "hole",
+  "smell",
+  "smart",
+  "chaos",
+  "fuel",
+  "palace",
+];
 
 function averageWordLength(wordsArray) {
   if (wordsArray.length === 0) {
@@ -100,17 +111,17 @@ function avg(diffElementsArray) {
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
-  'crab',
-  'poison',
-  'contagious',
-  'simple',
-  'bring',
-  'sharp',
-  'playground',
-  'poison',
-  'communion',
-  'simple',
-  'bring'
+  "crab",
+  "poison",
+  "contagious",
+  "simple",
+  "bring",
+  "sharp",
+  "playground",
+  "poison",
+  "communion",
+  "simple",
+  "bring",
 ];
 
 function uniquifyArray(wordsArray) {
@@ -118,41 +129,46 @@ function uniquifyArray(wordsArray) {
     return null;
   }
   let unduplicatedArray = [];
-  wordsArray.forEach(element => {
+  wordsArray.forEach((element) => {
     if (!unduplicatedArray.includes(element)) {
-      unduplicatedArray.push (element);
+      unduplicatedArray.push(element);
     }
   });
   return unduplicatedArray;
 }
 
-
-
 // Iteration #6: Find elements
-const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+const wordsFind = [
+  "machine",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "truth",
+  "disobedience",
+];
 
 function doesWordExist(wordsArray, word) {
   if (wordsArray.length === 0) {
     return null;
   }
-    return wordsArray.includes(word);
+  return wordsArray.includes(word);
 }
-
-
 
 // Iteration #7: Count repetition
 const wordsCount = [
-  'machine',
-  'matter',
-  'subset',
-  'trouble',
-  'starting',
-  'matter',
-  'eating',
-  'matter',
-  'truth',
-  'disobedience',
-  'matter'
+  "machine",
+  "matter",
+  "subset",
+  "trouble",
+  "starting",
+  "matter",
+  "eating",
+  "matter",
+  "truth",
+  "disobedience",
+  "matter",
 ];
 
 function howManyTimes(wordsArray, word) {
@@ -165,8 +181,6 @@ function howManyTimes(wordsArray, word) {
   });
   return counter;
 }
-
-
 
 // Iteration #8.1: Bonus
 const matrix = [
@@ -200,13 +214,15 @@ function greatestProduct(matrix) {
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if (j <= cols - 4) {
-        const horizontalProduct = matrix[i][j] * matrix[i][j+1] * matrix[i][j+2] * matrix[i][j+3];
+        const horizontalProduct =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
         if (horizontalProduct > maxProduct) {
           maxProduct = horizontalProduct;
         }
       }
       if (i <= rows - 4) {
-        const verticalProduct = matrix[i][j] * matrix[i+1][j] * matrix[i+2][j] * matrix[i+3][j];
+        const verticalProduct =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
         if (verticalProduct > maxProduct) {
           maxProduct = verticalProduct;
         }
@@ -225,27 +241,33 @@ function greatestProductDiagonal(matrix) {
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if (i <= rows - 4 && j <= cols - 4) {
-        const diagonalRight = matrix[i][j] * matrix[i+1][j+1] * matrix[i+2][j+2] * matrix[i+3][j+3];
+        const diagonalRight =
+          matrix[i][j] *
+          matrix[i + 1][j + 1] *
+          matrix[i + 2][j + 2] *
+          matrix[i + 3][j + 3];
         if (diagonalRight > maxProduct) {
           maxProduct = diagonalRight;
         }
       }
       if (i <= rows - 4 && j >= 3) {
-        const diagonalLeft = matrix[i][j] * matrix[i+1][j-1] * matrix[i+2][j-2] * matrix[i+3][j-3];
+        const diagonalLeft =
+          matrix[i][j] *
+          matrix[i + 1][j - 1] *
+          matrix[i + 2][j - 2] *
+          matrix[i + 3][j - 3];
         if (diagonalLeft > maxProduct) {
           maxProduct = diagonalLeft;
         }
       }
-
     }
   }
   return maxProduct;
 }
 
-
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
+if (typeof module !== "undefined") {
   module.exports = {
     maxOfTwoNumbers,
     findLongestWord,
@@ -257,6 +279,6 @@ if (typeof module !== 'undefined') {
     uniquifyArray,
     doesWordExist,
     howManyTimes,
-    greatestProduct
+    greatestProduct,
   };
 }
